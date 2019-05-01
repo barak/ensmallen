@@ -1,0 +1,5 @@
+ensmallen (1.14.2-1) unstable; urgency=medium
+
+  * Initial debian release (closes: 928293)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 01 May 2019 10:55:42 +0100
