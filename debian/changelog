@@ -1,3 +1,9 @@
+ensmallen (2.10.2-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 13 Sep 2019 12:37:41 +0100
+
 ensmallen (2.10.0-1) unstable; urgency=medium
 
   * Switch gbp.conf to apparent new upstream tag format
