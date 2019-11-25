@@ -1,3 +1,10 @@
+ensmallen (2.10.4-1) unstable; urgency=medium
+
+  * New upstream version
+  * Bump standards version
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 25 Nov 2019 15:37:41 +0000
+
 ensmallen (2.10.3-1) unstable; urgency=medium
 
   * New upstream version
