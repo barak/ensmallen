@@ -1,3 +1,8 @@
+### ensmallen ?.??.?
+###### ????-??-??
+  * SGD callback test 32-bit safety (big number).
+    ([#143](https://github.com/mlpack/ensmallen/pull/143)).
+
 ### ensmallen 2.10.4: "Fried Chicken"
 ###### 2019-11-18
   * Add optional tests building.
