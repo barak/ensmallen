@@ -551,16 +551,19 @@ and f'(x) compute some of the same intermediate quantities.
 Each of the implemented methods is allowed to have additional cv-modifiers
 (`static`, `const`, etc.).
 
-The following optimizers can be used with differentiable functions:
+The following optimizers can be used with differentiable separable functions:
 
+ - [AdaBound](#adabound)
  - [AdaDelta](#adadelta)
  - [AdaGrad](#adagrad)
  - [Adam](#adam)
  - [AdaMax](#adamax)
+ - [AMSBound](#amsbound)
  - [AMSGrad](#amsgrad)
  - [Big Batch SGD](#big-batch-sgd)
  - [IQN](#iqn)
  - [Katyusha](#katyusha)
+ - [Lookahead](#lookahead)
  - [Momentum SGD](#momentum-sgd)
  - [Nadam](#nadam)
  - [NadaMax](#nadamax)
