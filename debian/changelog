@@ -1,3 +1,9 @@
+ensmallen (2.11.0-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 25 Dec 2019 13:23:04 +0000
+
 ensmallen (2.10.4-2) unstable; urgency=medium
 
   * Patch for i386 build failure
