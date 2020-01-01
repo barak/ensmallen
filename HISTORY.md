@@ -1,4 +1,9 @@
-### ensmallen 2.11.0
+### ensmallen 2.11.1: "The Poster Session Is Full"
+###### 2019-12-28
+  * Fix Lookahead Synchronization period type
+    ([#153](https://github.com/mlpack/ensmallen/pull/153)).
+
+### ensmallen 2.11.0: "The Poster Session Is Full"
 ###### 2019-12-24
   * Add Lookahead
     ([#138](https://github.com/mlpack/ensmallen/pull/138)).
@@ -6,7 +11,7 @@
   * Add AdaBound and AMSBound
     ([#137](https://github.com/mlpack/ensmallen/pull/137)).
 
-### ensmallen 2.10.5
+### ensmallen 2.10.5: "Fried Chicken"
 ###### 2019-12-13
   * SGD callback test 32-bit safety (big number)
     ([#143](https://github.com/mlpack/ensmallen/pull/143)).
