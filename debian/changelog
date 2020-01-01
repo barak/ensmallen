@@ -1,8 +1,10 @@
-ensmallen (2.11.0-1) unstable; urgency=medium
+ensmallen (2.11.1-1) unstable; urgency=medium
 
+  * Remove upstreamed quilt patch
+  * Remove unused variable from debian/rules
   * New upstream version
 
- -- Barak A. Pearlmutter <bap@debian.org>  Wed, 25 Dec 2019 13:23:04 +0000
+ -- Barak A. Pearlmutter <bap@debian.org>  Thu, 02 Jan 2020 08:13:46 +0000
 
 ensmallen (2.10.4-2) unstable; urgency=medium
 
