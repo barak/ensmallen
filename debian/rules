@@ -4,5 +4,7 @@
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
+export CTEST_OUTPUT_ON_FAILURE = 1
+
 %:
 	dh $@
