@@ -21,6 +21,6 @@ override_dh_auto_test:
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 	@echo "This should give more useful/voluminous output, but could"
 	@echo "also use the commented-out line below."
-	$(BUILD_DIR)/ensmallen_tests --durations yes
+	cd $(BUILD_DIR) && ./ensmallen_tests --durations yes
 	@echo "alternative: env CTEST_OUTPUT_ON_FAILURE=1 dh_auto_test"
 endif
