@@ -1,0 +1,44 @@
+From: Ryan Curtin <ryan@ratml.org>
+Date: Thu, 2 Jan 2020 11:17:52 -0500
+Subject: Fix float types and tolerances in some tests.
+
+---
+ tests/lbfgs_test.cpp | 8 ++++----
+ tests/spsa_test.cpp  | 4 ++--
+ 2 files changed, 6 insertions(+), 6 deletions(-)
+
+diff --git a/tests/lbfgs_test.cpp b/tests/lbfgs_test.cpp
+index eb0dc81..c1ea2cc 100644
+--- a/tests/lbfgs_test.cpp
++++ b/tests/lbfgs_test.cpp
+@@ -47,11 +47,11 @@ TEST_CASE("RosenbrockFunctionFloatTest", "[LBFGSTest]")
+   arma::fmat coords = f.GetInitialPoint<arma::fvec>();
+   lbfgs.Optimize(f, coords);
+ 
+-  double finalValue = f.Evaluate(coords);
++  float finalValue = f.Evaluate(coords);
+ 
+-  REQUIRE(finalValue == Approx(0.0).margin(1e-5));
+-  REQUIRE(coords(0) == Approx(1.0).epsilon(1e-7));
+-  REQUIRE(coords(1) == Approx(1.0).epsilon(1e-7));
++  REQUIRE(finalValue == Approx(0.0f).margin(1e-3));
++  REQUIRE(coords(0) == Approx(1.0f).epsilon(1e-4));
++  REQUIRE(coords(1) == Approx(1.0f).epsilon(1e-4));
+ }
+ 
+ /**
+diff --git a/tests/spsa_test.cpp b/tests/spsa_test.cpp
+index f75b8ff..86ac5ae 100644
+--- a/tests/spsa_test.cpp
++++ b/tests/spsa_test.cpp
+@@ -45,8 +45,8 @@ TEST_CASE("SPSASphereFunctionFMatTest", "[SPSATest]")
+   arma::fmat coordinates = f.GetInitialPoint<arma::fmat>();
+   optimizer.Optimize(f, coordinates);
+ 
+-  REQUIRE(coordinates(0) == Approx(0.0).margin(0.1));
+-  REQUIRE(coordinates(1) == Approx(0.0).margin(0.1));
++  REQUIRE(coordinates(0) == Approx(0.0f).margin(0.1));
++  REQUIRE(coordinates(1) == Approx(0.0f).margin(0.1));
+ }
+ 
+ /**
