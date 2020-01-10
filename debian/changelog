@@ -1,3 +1,9 @@
+ensmallen (2.11.1-5) unstable; urgency=medium
+
+  * cherry-pick upstream patch for i386 issue
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 10 Jan 2020 12:04:07 +0000
+
 ensmallen (2.11.1-4) unstable; urgency=medium
 
   * cherry-pick upstream patch for i386 issue
