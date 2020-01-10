@@ -1,1 +1,2 @@
 0001-Fix-float-types-and-tolerances-in-some-tests.patch
+0002-Fix-callback-passing-for-SGD-based-optimizers.patch

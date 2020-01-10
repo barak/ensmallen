@@ -1,0 +1,310 @@
+From: Marcus Edel <marcus.edel@fu-berlin.de>
+Date: Tue, 31 Dec 2019 20:21:50 +0100
+Subject: Fix callback passing for SGD based optimizers.
+
+---
+ include/ensmallen_bits/ada_bound/ada_bound.hpp |  5 +-
+ include/ensmallen_bits/ada_delta/ada_delta.hpp |  3 +-
+ include/ensmallen_bits/ada_grad/ada_grad.hpp   |  3 +-
+ include/ensmallen_bits/adam/adam.hpp           |  2 +-
+ include/ensmallen_bits/ftml/ftml.hpp           |  3 +-
+ include/ensmallen_bits/padam/padam.hpp         |  2 +-
+ include/ensmallen_bits/qhadam/qhadam.hpp       |  3 +-
+ include/ensmallen_bits/rmsprop/rmsprop.hpp     |  3 +-
+ include/ensmallen_bits/smorms3/smorms3.hpp     |  3 +-
+ include/ensmallen_bits/swats/swats.hpp         |  3 +-
+ include/ensmallen_bits/wn_grad/wn_grad.hpp     |  3 +-
+ tests/callbacks_test.cpp                       | 93 ++++++++++++++++++++++++--
+ 12 files changed, 108 insertions(+), 18 deletions(-)
+
+diff --git a/include/ensmallen_bits/ada_bound/ada_bound.hpp b/include/ensmallen_bits/ada_bound/ada_bound.hpp
+index ea0a8ca..94283c3 100644
+--- a/include/ensmallen_bits/ada_bound/ada_bound.hpp
++++ b/include/ensmallen_bits/ada_bound/ada_bound.hpp
+@@ -113,8 +113,9 @@ class AdaBoundType
+            MatType& iterate,
+            CallbackTypes&&... callbacks)
+   {
+-    return optimizer.template Optimize<DecomposableFunctionType, MatType, GradType,
+-        CallbackTypes...>(function, iterate, callbacks...);
++    return optimizer.template Optimize<DecomposableFunctionType, MatType,
++        GradType, CallbackTypes...>(function, iterate,
++        std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/include/ensmallen_bits/ada_delta/ada_delta.hpp b/include/ensmallen_bits/ada_delta/ada_delta.hpp
+index d7c4257..d958ee2 100644
+--- a/include/ensmallen_bits/ada_delta/ada_delta.hpp
++++ b/include/ensmallen_bits/ada_delta/ada_delta.hpp
+@@ -105,7 +105,8 @@ class AdaDelta
+            CallbackTypes&&... callbacks)
+   {
+     return optimizer.Optimize<SeparableFunctionType, MatType, GradType,
+-        CallbackTypes...>(function, iterate, callbacks...);
++        CallbackTypes...>(function, iterate,
++        std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/include/ensmallen_bits/ada_grad/ada_grad.hpp b/include/ensmallen_bits/ada_grad/ada_grad.hpp
+index 188c1df..677d300 100644
+--- a/include/ensmallen_bits/ada_grad/ada_grad.hpp
++++ b/include/ensmallen_bits/ada_grad/ada_grad.hpp
+@@ -101,7 +101,8 @@ class AdaGrad
+            CallbackTypes&&... callbacks)
+   {
+     return optimizer.Optimize<SeparableFunctionType, MatType, GradType,
+-        CallbackTypes...>(function, iterate, callbacks...);
++        CallbackTypes...>(function, iterate,
++        std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/include/ensmallen_bits/adam/adam.hpp b/include/ensmallen_bits/adam/adam.hpp
+index ce630a6..13c2f96 100644
+--- a/include/ensmallen_bits/adam/adam.hpp
++++ b/include/ensmallen_bits/adam/adam.hpp
+@@ -128,7 +128,7 @@ class AdamType
+   {
+     return optimizer.template Optimize<
+         SeparableFunctionType, MatType, GradType, CallbackTypes...>(
+-        function, iterate, callbacks...);
++        function, iterate, std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/include/ensmallen_bits/ftml/ftml.hpp b/include/ensmallen_bits/ftml/ftml.hpp
+index a823b7b..26c4183 100644
+--- a/include/ensmallen_bits/ftml/ftml.hpp
++++ b/include/ensmallen_bits/ftml/ftml.hpp
+@@ -105,7 +105,8 @@ class FTML
+            CallbackTypes&&... callbacks)
+   {
+     return optimizer.Optimize<SeparableFunctionType, MatType, GradType,
+-        CallbackTypes...>(function, iterate, callbacks...);
++        CallbackTypes...>(function, iterate,
++        std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/include/ensmallen_bits/padam/padam.hpp b/include/ensmallen_bits/padam/padam.hpp
+index 01158ea..979c402 100644
+--- a/include/ensmallen_bits/padam/padam.hpp
++++ b/include/ensmallen_bits/padam/padam.hpp
+@@ -113,7 +113,7 @@ class Padam
+   {
+     return optimizer.template Optimize<
+         SeparableFunctionType, MatType, GradType, CallbackTypes...>(
+-        function, iterate, callbacks...);
++        function, iterate, std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/include/ensmallen_bits/qhadam/qhadam.hpp b/include/ensmallen_bits/qhadam/qhadam.hpp
+index c42aacc..e29d4f2 100644
+--- a/include/ensmallen_bits/qhadam/qhadam.hpp
++++ b/include/ensmallen_bits/qhadam/qhadam.hpp
+@@ -107,7 +107,8 @@ class QHAdam
+            CallbackTypes&&... callbacks)
+   {
+     return optimizer.Optimize<SeparableFunctionType, MatType, GradType,
+-        CallbackTypes...>(function, iterate, callbacks...);
++        CallbackTypes...>(function, iterate,
++        std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/include/ensmallen_bits/rmsprop/rmsprop.hpp b/include/ensmallen_bits/rmsprop/rmsprop.hpp
+index 5584330..9c3607a 100644
+--- a/include/ensmallen_bits/rmsprop/rmsprop.hpp
++++ b/include/ensmallen_bits/rmsprop/rmsprop.hpp
+@@ -116,7 +116,8 @@ class RMSProp
+            CallbackTypes&&... callbacks)
+   {
+     return optimizer.Optimize<SeparableFunctionType, MatType, GradType,
+-        CallbackTypes...>(function, iterate, callbacks...);
++        CallbackTypes...>(function, iterate,
++        std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/include/ensmallen_bits/smorms3/smorms3.hpp b/include/ensmallen_bits/smorms3/smorms3.hpp
+index 9dab038..e45f5ed 100644
+--- a/include/ensmallen_bits/smorms3/smorms3.hpp
++++ b/include/ensmallen_bits/smorms3/smorms3.hpp
+@@ -101,7 +101,8 @@ class SMORMS3
+     // TODO: disallow sp_mat
+ 
+     return optimizer.Optimize<SeparableFunctionType, MatType, GradType,
+-        CallbackTypes...>(function, iterate, callbacks...);
++        CallbackTypes...>(function, iterate,
++        std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/include/ensmallen_bits/swats/swats.hpp b/include/ensmallen_bits/swats/swats.hpp
+index 22b3981..1230d19 100644
+--- a/include/ensmallen_bits/swats/swats.hpp
++++ b/include/ensmallen_bits/swats/swats.hpp
+@@ -105,7 +105,8 @@ class SWATS
+            CallbackTypes&&... callbacks)
+   {
+     return optimizer.Optimize<SeparableFunctionType, MatType, GradType,
+-        CallbackTypes...>(function, iterate, callbacks...);
++        CallbackTypes...>(function, iterate,
++        std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/include/ensmallen_bits/wn_grad/wn_grad.hpp b/include/ensmallen_bits/wn_grad/wn_grad.hpp
+index 50a446c..9b31a3f 100644
+--- a/include/ensmallen_bits/wn_grad/wn_grad.hpp
++++ b/include/ensmallen_bits/wn_grad/wn_grad.hpp
+@@ -94,7 +94,8 @@ class WNGrad
+            CallbackTypes&&... callbacks)
+   {
+     return optimizer.Optimize<SeparableFunctionType, MatType, GradType,
+-        CallbackTypes...>(function, iterate, callbacks...);
++        CallbackTypes...>(function, iterate,
++        std::forward<CallbackTypes>(callbacks)...);
+   }
+ 
+   //! Forward the MatType as GradType.
+diff --git a/tests/callbacks_test.cpp b/tests/callbacks_test.cpp
+index 050b7f3..a7f9492 100644
+--- a/tests/callbacks_test.cpp
++++ b/tests/callbacks_test.cpp
+@@ -152,6 +152,18 @@ void CallbacksFullFunctionTest(OptimizerType& optimizer,
+   REQUIRE(cb.calledStepTaken == calledStepTaken);
+ }
+ 
++
++/**
++ * Make sure we invoke all callbacks (AdaBound).
++ */
++TEST_CASE("AdaBoundCallbacksFullFunctionTest", "[CallbacksTest]")
++{
++  AdaBound optimizer(0.001, 2, 0.1, 1e-3, 0.9, 0.999, 1e-8, 1000,
++      1e-3, false);
++  CallbacksFullFunctionTest(optimizer, true, true, true, true, true, true,
++      false, false, true);
++}
++
+ /**
+  * Make sure we invoke all callbacks (AdaDelta).
+  */
+@@ -272,6 +284,47 @@ TEST_CASE("KatyushaCallbacksFullFunctionTest", "[CallbacksTest]")
+       false, false, true);
+ }
+ 
++/**
++ * Make sure we invoke all callbacks (Lookahead).
++ */
++TEST_CASE("LookaheadCallbacksFullFunctionTest", "[CallbacksTest]")
++{
++  Adam adam(0.001, 1, 0.9, 0.999, 1e-8, 100, 1e-10, false, true);
++  Lookahead<Adam> optimizer(adam, 0.5, 1000, 10, -10, NoDecay(),
++      false, true);
++  CallbacksFullFunctionTest(optimizer, true, true, true, true, true, true,
++      false, false, true);
++}
++
++/**
++ * Make sure we invoke all callbacks (Padam).
++ */
++TEST_CASE("PadamCallbacksFullFunctionTest", "[CallbacksTest]")
++{
++  Padam optimizer(1e-2, 1, 0.9, 0.99, 0.25, 1e-5, 1000);
++  CallbacksFullFunctionTest(optimizer, true, true, true, true, true, true,
++      false, false, true);
++}
++
++/**
++ * Make sure we invoke all callbacks (QHAdam).
++ */
++TEST_CASE("QHAdamCallbacksFullFunctionTest", "[CallbacksTest]")
++{
++  QHAdam optimizer(0.02, 2, 0.6, 0.9, 0.9, 0.999, 1e-8, 1000, 1e-7, true);
++  CallbacksFullFunctionTest(optimizer, true, true, true, true, true, true,
++      false, false, true);
++}
++
++/**
++ * Make sure we invoke all callbacks (RMSProp).
++ */
++TEST_CASE("RMSPropCallbacksFullFunctionTest", "[CallbacksTest]")
++{
++  RMSProp optimizer(1e-3, 1, 0.99, 1e-8, 1000, 1e-9, true);
++  CallbacksFullFunctionTest(optimizer, true, true, true, true, true, true,
++      false, false, true);
++}
+ /**
+  * Make sure we invoke all callbacks (SARAH).
+  */
+@@ -312,6 +365,16 @@ TEST_CASE("SGDRCallbacksFullFunctionTest", "[CallbacksTest]")
+       false, false, true);
+ }
+ 
++/**
++ * Make sure we invoke all callbacks (SMORMS3).
++ */
++TEST_CASE("SMORMS3CallbacksFullFunctionTest", "[CallbacksTest]")
++{
++  SMORMS3 optimizer(0.001, 1, 1e-16, 1000, 1e-9, true);
++  CallbacksFullFunctionTest(optimizer, true, true, true, true, true, true,
++      false, false, true);
++}
++
+ /**
+  * Make sure we invoke all callbacks (SPALeRASGD).
+  */
+@@ -342,6 +405,26 @@ TEST_CASE("SVRGCallbacksFullFunctionTest", "[CallbacksTest]")
+       false, false, true);
+ }
+ 
++/**
++ * Make sure we invoke all callbacks (SWATS).
++ */
++TEST_CASE("SWATSCallbacksFullFunctionTest", "[CallbacksTest]")
++{
++  SWATS optimizer(0.01, 10, 0.9, 0.999, 1e-6, 1000, 1e-9, true);
++  CallbacksFullFunctionTest(optimizer, true, true, true, true, true, true,
++      false, false, true);
++}
++
++/**
++ * Make sure we invoke all callbacks (WNGrad).
++ */
++TEST_CASE("WNGradCallbacksFullFunctionTest", "[CallbacksTest]")
++{
++  WNGrad optimizer(0.56, 1, 1000, 1e-9, true);
++  CallbacksFullFunctionTest(optimizer, true, true, true, true, true, true,
++      false, false, true);
++}
++
+ /**
+  * Make sure we invoke all callbacks (ParallelSGD).
+  */
+@@ -467,17 +550,15 @@ TEST_CASE("TimerStopCallbackTest", "[CallbacksTest]")
+ {
+   SGDTestFunction f;
+   arma::mat coordinates = f.GetInitialPoint();
+-
++  
+   // Instantiate the optimizer with a number of iterations that will take a
+   // long time to finish.
+-  StandardSGD s(0.0003, 1, 2000000000, -100, true);
+-
++  Adam opt(0.5, 2, 0.7, 0.999, 1e-8, 2000000000, -100, false);
+   arma::wall_clock timer;
++  
+   timer.tic();
+-
+   // The optimization process should return in one second.
+-  s.Optimize(f, coordinates, TimerStop(0.5));
+-
++  opt.Optimize(f, coordinates, TimerStop(0.5));
+   // Add some time to account for the function to return.
+   REQUIRE(timer.toc() < 2);
+ }
