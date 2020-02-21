@@ -1,3 +1,10 @@
+ensmallen (2.11.3-1) unstable; urgency=medium
+
+  * New upstream version
+  * bump policy
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 21 Feb 2020 15:03:45 +0000
+
 ensmallen (2.11.2-1) unstable; urgency=medium
 
   * New upstream version
