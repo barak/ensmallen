@@ -1,3 +1,10 @@
+ensmallen (2.11.5-2) unstable; urgency=medium
+
+  * Temporary fix: prevent test failure from blocking build on i386.
+    See https://github.com/mlpack/ensmallen/issues/142
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 13 Mar 2020 10:13:18 +0000
+
 ensmallen (2.11.5-1) unstable; urgency=medium
 
   * New upstream version
