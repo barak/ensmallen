@@ -1,3 +1,10 @@
+ensmallen (2.12.0-2) UNRELEASED; urgency=medium
+
+  * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
+    Repository-Browse.
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 22 Apr 2020 20:24:48 +0100
+
 ensmallen (2.12.0-1) unstable; urgency=medium
 
   * New upstream version
