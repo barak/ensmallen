@@ -1,3 +1,9 @@
+ensmallen (2.13.0-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 03 Aug 2020 23:32:41 +0100
+
 ensmallen (2.12.1-1) unstable; urgency=medium
 
   * Set upstream metadata fields: Bug-Database, Bug-Submit, Repository,
