@@ -4,25 +4,8 @@
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
-# Explicitly setting build directory because we need it to find the
-# testing executable below, and there seems to be no robust way to
-# figure out what it is if you don't set it explicitly! So we set it
-# to what it would be anyway. Note: if we set it to the wrong thing it
-# doesn't really matter anyway.  And if we just used dh_auto_test,
-# we wouldn't need this because internally that command has access
-# to the build directory.
-
-BUILD_DIR := obj-$(shell dpkg-architecture --query DEB_BUILD_GNU_TYPE)
-
 %:
-	dh $@ --builddirectory=$(BUILD_DIR)
+	dh $@
 
 override_dh_auto_test:
-ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
-	@echo "This should give more useful/voluminous output, but could"
-	@echo "also use the commented-out line below."
-	cd $(BUILD_DIR) && \
-	 ( env CTEST_OUTPUT_ON_FAILURE=1 ./ensmallen_tests --durations yes || \
-	   if dpkg-architecture --is any-i386 ; then echo "Ignoring test error pending resolution of upstream issue."; else false; fi )
-	@echo "alternative: env CTEST_OUTPUT_ON_FAILURE=1 dh_auto_test"
-endif
+	env CTEST_OUTPUT_ON_FAILURE=1 dh_auto_test
