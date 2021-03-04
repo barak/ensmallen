@@ -8,7 +8,7 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 	dh $@
 
 override_dh_auto_test:
-	f=0; \
+	ok=true; \
 	for i in $$(seq 3); do \
 	  echo "Test Run $$i"; \
 	  if env CTEST_OUTPUT_ON_FAILURE=1 dh_auto_test; \
@@ -16,7 +16,7 @@ override_dh_auto_test:
 	    echo "success"; \
 	  else \
 	    echo "failure"; \
-	    f=1; \
+	    ok=false; \
 	  fi; \
 	done; \
-	if [ $$f = 1 ]; then false; fi
+	$${ok}
