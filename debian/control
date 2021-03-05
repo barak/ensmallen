@@ -6,7 +6,7 @@ Uploaders: Barak A. Pearlmutter <bap@debian.org>
 Build-Depends: debhelper-compat (= 13),
 		cmake,
 		libarmadillo-dev (>= 1:6.5), liblapack-dev
-Standards-Version: 4.5.0
+Standards-Version: 4.5.1
 Rules-Requires-Root: no
 Homepage: https://www.ensmallen.org/
 Vcs-Git: https://salsa.debian.org/science-team/ensmallen.git
