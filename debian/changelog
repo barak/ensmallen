@@ -1,3 +1,14 @@
+ensmallen (2.16.1-1) unstable; urgency=medium
+
+  * New upstream version, may fix broken test (closes: #983169, #983941)
+  * Bump policy
+  * Remove multi-arch: same
+    conflicts on /usr/lib/cmake/ensmallen/ensmallen-config-version.cmake on amd64, mips64el <-> i386, mipsel
+    (alternative solution would be to put the file in
+    /usr/lib/$(DEB_HOST_MULTIARCH)/cmake/... but that hardly seems worthwhile.)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 05 Mar 2021 20:38:57 +0000
+
 ensmallen (2.16.0-2) unstable; urgency=medium
 
   * Run test three times, per upstream request
