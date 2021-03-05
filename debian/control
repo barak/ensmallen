@@ -15,7 +15,6 @@ Vcs-Browser: https://salsa.debian.org/science-team/ensmallen
 Package: libensmallen-dev
 Section: libdevel
 Architecture: any
-Multi-Arch: same
 Depends: libarmadillo-dev (>= 1:6.5), liblapack-dev, ${misc:Depends}
 Description: C++ header-only library for mathematical optimization
  Ensmallen provides a simple set of abstractions for writing an objective
