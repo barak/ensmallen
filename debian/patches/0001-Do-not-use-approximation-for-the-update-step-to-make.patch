@@ -1,0 +1,29 @@
+From: Marcus Edel <marcus.edel@fu-berlin.de>
+Date: Sun, 7 Mar 2021 00:47:06 +0100
+Subject: Do not use approximation for the update step to make the
+ implementation more stable.
+
+---
+ include/ensmallen_bits/adam/adam_update.hpp | 9 ++-------
+ 1 file changed, 2 insertions(+), 7 deletions(-)
+
+diff --git a/include/ensmallen_bits/adam/adam_update.hpp b/include/ensmallen_bits/adam/adam_update.hpp
+index 8831c7b..839670c 100644
+--- a/include/ensmallen_bits/adam/adam_update.hpp
++++ b/include/ensmallen_bits/adam/adam_update.hpp
+@@ -129,13 +129,8 @@ class AdamUpdate
+       const double biasCorrection2 = 1.0 - std::pow(parent.beta2,
+           parent.iteration);
+ 
+-      /**
+-       * It should be noted that the term, m / (arma::sqrt(v) + eps), in the
+-       * following expression is an approximation of the following actual term;
+-       * m / (arma::sqrt(v) + (arma::sqrt(biasCorrection2) * eps).
+-       */
+-      iterate -= (stepSize * std::sqrt(biasCorrection2) / biasCorrection1) *
+-          m / (arma::sqrt(v) + parent.epsilon);
++      iterate -= stepSize / (arma::sqrt(v / biasCorrection2) +
++          parent.epsilon) % (m / biasCorrection1);
+     }
+ 
+    private:

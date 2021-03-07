@@ -1,3 +1,10 @@
+ensmallen (2.16.1-2) unstable; urgency=medium
+
+  * cherry pick quilt patch for debugging
+    See https://github.com/mlpack/ensmallen/issues/253#issuecomment-792121815
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 07 Mar 2021 16:54:59 +0000
+
 ensmallen (2.16.1-1) unstable; urgency=medium
 
   * New upstream version, may fix broken test (closes: #983169, #983941)
