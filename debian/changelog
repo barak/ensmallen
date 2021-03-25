@@ -1,3 +1,9 @@
+ensmallen (2.16.2-1) unstable; urgency=medium
+
+  * New upstream version, WILL fix broken test (closes: #984868)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Thu, 25 Mar 2021 21:55:13 +0000
+
 ensmallen (2.16.1-2) unstable; urgency=medium
 
   * cherry pick quilt patch for debugging
