@@ -7,9 +7,13 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 %:
 	dh $@
 
+# Number of times to run test suite.
+# (There was a heisenbug, and this was used to help track it down.)
+n_test = 1
+
 override_dh_auto_test:
 	ok=true; \
-	for i in $$(seq 3); do \
+	for i in $$(seq $(n_test)); do \
 	  echo "Test Run $$i"; \
 	  if env CTEST_OUTPUT_ON_FAILURE=1 dh_auto_test; \
 	  then \
