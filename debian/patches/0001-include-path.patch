@@ -1,0 +1,24 @@
+From: "Barak A. Pearlmutter" <barak+git@pearlmutter.net>
+Date: Fri, 16 Apr 2021 15:54:22 +0100
+Subject: include path
+
+The C++ test files must #include <ensmallen.hpp> rather than
+"../include/ensmallen.hpp" in order to allow the installed files,
+rather than the repo-local files, to be tested.
+---
+ tests/de_test.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/tests/de_test.cpp b/tests/de_test.cpp
+index a4bb246..c116c69 100644
+--- a/tests/de_test.cpp
++++ b/tests/de_test.cpp
+@@ -8,7 +8,7 @@
+  * http://www.opensource.org/licenses/BSD-3-Clause for more information.
+  */
+ 
+-#include "../include/ensmallen.hpp"
++#include <ensmallen.hpp>
+ #include "catch.hpp"
+ #include "test_function_tools.hpp"
+ 
