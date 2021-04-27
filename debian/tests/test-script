@@ -5,6 +5,6 @@ set -x
 e=$(mktemp --tmpdir=${AUTOPKGTEST_TMP} ensmallen-test-XXXXXX)
 # Build outside tests to reduce possibility of getting build rather
 # than installed ensmallen files via #include.
-c++ -O0 -o ${e} tests/*.cpp -lpthread -larmadillo
+c++ -O -Wall -o ${e} tests/*.cpp -pthread $(pkg-config armadillo --cflags --libs) -lpthread
 # cd tests because the executable reads data/* files.
 cd tests && ${e} --durations yes
