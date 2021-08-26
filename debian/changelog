@@ -1,4 +1,4 @@
-ensmallen (2.17.0-2) UNRELEASED; urgency=medium
+ensmallen (2.17.0-2) unstable; urgency=medium
 
   * bump policy
   * build ensmallen_tests in debian/rules (closes: #990927)
