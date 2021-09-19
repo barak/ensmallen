@@ -7,10 +7,11 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 %:
 	dh $@
 
-# This really should be guarded depending on whether tests are going to be run.
 # Note that the build-time tests are pretty much redundant with autopkgtest.
+ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 execute_after_dh_auto_build:
 	dh_auto_build -- ensmallen_tests
+endif
 
 # Number of times to run test suite.
 # (There was a heisenbug, and this was used to help track it down.)
