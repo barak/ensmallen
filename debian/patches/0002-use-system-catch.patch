@@ -1,4 +1,11 @@
+Description: use system catch2 header instead of vendored one
+ As a bonus, this addresses a future ftbfs with glibc 2.34.
+Author: Étienne Mollier <emollier@debian.org>
+Bug: https://github.com/mlpack/ensmallen/issues/321
+Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=993513
+Last-Update: 2021-09-19
 ---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 --- ensmallen.orig/tests/ada_bound_test.cpp
 +++ ensmallen/tests/ada_bound_test.cpp
 @@ -9,7 +9,7 @@
