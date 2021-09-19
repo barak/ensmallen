@@ -1,0 +1,507 @@
+---
+--- ensmallen.orig/tests/ada_bound_test.cpp
++++ ensmallen/tests/ada_bound_test.cpp
+@@ -9,7 +9,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/ada_delta_test.cpp
++++ ensmallen/tests/ada_delta_test.cpp
+@@ -12,7 +12,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/ada_grad_test.cpp
++++ ensmallen/tests/ada_grad_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/adam_test.cpp
++++ ensmallen/tests/adam_test.cpp
+@@ -14,7 +14,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/aug_lagrangian_test.cpp
++++ ensmallen/tests/aug_lagrangian_test.cpp
+@@ -14,7 +14,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace ens;
+ using namespace ens::test;
+--- ensmallen.orig/tests/bigbatch_sgd_test.cpp
++++ ensmallen/tests/bigbatch_sgd_test.cpp
+@@ -10,7 +10,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/callbacks_test.cpp
++++ ensmallen/tests/callbacks_test.cpp
+@@ -9,7 +9,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/cmaes_test.cpp
++++ ensmallen/tests/cmaes_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/cne_test.cpp
++++ ensmallen/tests/cne_test.cpp
+@@ -11,7 +11,7 @@
+  * http://www.opensource.org/licenses/BSD-3-Clause for more information.
+  */
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/de_test.cpp
++++ ensmallen/tests/de_test.cpp
+@@ -9,7 +9,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/eve_test.cpp
++++ ensmallen/tests/eve_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/frankwolfe_test.cpp
++++ ensmallen/tests/frankwolfe_test.cpp
+@@ -12,7 +12,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace arma;
+--- ensmallen.orig/tests/ftml_test.cpp
++++ ensmallen/tests/ftml_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/function_test.cpp
++++ ensmallen/tests/function_test.cpp
+@@ -12,7 +12,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace ens;
+ using namespace ens::test;
+--- ensmallen.orig/tests/gradient_descent_test.cpp
++++ ensmallen/tests/gradient_descent_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/grid_search_test.cpp
++++ ensmallen/tests/grid_search_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/indicators_test.cpp
++++ ensmallen/tests/indicators_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace ens;
+ using namespace ens::test;
+--- ensmallen.orig/tests/iqn_test.cpp
++++ ensmallen/tests/iqn_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/katyusha_test.cpp
++++ ensmallen/tests/katyusha_test.cpp
+@@ -10,7 +10,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/lbfgs_test.cpp
++++ ensmallen/tests/lbfgs_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/line_search_test.cpp
++++ ensmallen/tests/line_search_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace arma;
+ using namespace ens;
+--- ensmallen.orig/tests/lookahead_test.cpp
++++ ensmallen/tests/lookahead_test.cpp
+@@ -9,7 +9,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/lrsdp_test.cpp
++++ ensmallen/tests/lrsdp_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace arma;
+ using namespace ens;
+--- ensmallen.orig/tests/main.cpp
++++ ensmallen/tests/main.cpp
+@@ -13,7 +13,7 @@
+ 
+ //#define CATCH_CONFIG_MAIN  // catch.hpp will define main()
+ #define CATCH_CONFIG_RUNNER  // we will define main()
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ int main(int argc, char** argv)
+ {
+--- ensmallen.orig/tests/moead_test.cpp
++++ ensmallen/tests/moead_test.cpp
+@@ -9,7 +9,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/momentum_sgd_test.cpp
++++ ensmallen/tests/momentum_sgd_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace ens;
+ using namespace ens::test;
+--- ensmallen.orig/tests/nesterov_momentum_sgd_test.cpp
++++ ensmallen/tests/nesterov_momentum_sgd_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace ens;
+ using namespace ens::test;
+--- ensmallen.orig/tests/nsga2_test.cpp
++++ ensmallen/tests/nsga2_test.cpp
+@@ -10,7 +10,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/parallel_sgd_test.cpp
++++ ensmallen/tests/parallel_sgd_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ #include "test_function_tools.hpp"
+ 
+--- ensmallen.orig/tests/proximal_test.cpp
++++ ensmallen/tests/proximal_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace arma;
+ using namespace ens;
+--- ensmallen.orig/tests/pso_test.cpp
++++ ensmallen/tests/pso_test.cpp
+@@ -11,7 +11,7 @@
+  * http://www.opensource.org/licenses/BSD-3-Clause for more information.
+  */
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace ens;
+ using namespace ens::test;
+--- ensmallen.orig/tests/quasi_hyperbolic_momentum_sgd_test.cpp
++++ ensmallen/tests/quasi_hyperbolic_momentum_sgd_test.cpp
+@@ -8,7 +8,7 @@
+  * http://www.opensource.org/licenses/BSD-3-Clause for more information.
+  */
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/rmsprop_test.cpp
++++ ensmallen/tests/rmsprop_test.cpp
+@@ -10,7 +10,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/sa_test.cpp
++++ ensmallen/tests/sa_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/sarah_test.cpp
++++ ensmallen/tests/sarah_test.cpp
+@@ -10,7 +10,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/scd_test.cpp
++++ ensmallen/tests/scd_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ #include "test_function_tools.hpp"
+ 
+--- ensmallen.orig/tests/sdp_primal_dual_test.cpp
++++ ensmallen/tests/sdp_primal_dual_test.cpp
+@@ -12,7 +12,7 @@
+ 
+ #define ARMA_DONT_PRINT_ERRORS
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ using namespace ens;
+ using namespace ens::test;
+--- ensmallen.orig/tests/sgd_test.cpp
++++ ensmallen/tests/sgd_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace std;
+--- ensmallen.orig/tests/sgdr_test.cpp
++++ ensmallen/tests/sgdr_test.cpp
+@@ -10,7 +10,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/smorms3_test.cpp
++++ ensmallen/tests/smorms3_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/snapshot_ensembles.cpp
++++ ensmallen/tests/snapshot_ensembles.cpp
+@@ -10,7 +10,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/spalera_sgd_test.cpp
++++ ensmallen/tests/spalera_sgd_test.cpp
+@@ -10,7 +10,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/spsa_test.cpp
++++ ensmallen/tests/spsa_test.cpp
+@@ -12,7 +12,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace arma;
+--- ensmallen.orig/tests/svrg_test.cpp
++++ ensmallen/tests/svrg_test.cpp
+@@ -10,7 +10,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/swats_test.cpp
++++ ensmallen/tests/swats_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+--- ensmallen.orig/tests/wn_grad_test.cpp
++++ ensmallen/tests/wn_grad_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
