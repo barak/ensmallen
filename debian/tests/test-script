@@ -3,8 +3,10 @@ set -e
 set -x
 # Choose location for test executable
 e=$(mktemp --tmpdir=${AUTOPKGTEST_TMP} ensmallen-test-XXXXXX)
+# Some tests are sensitive to the excess in double precision of i386.
+test "$(dpkg --print-architecture)" != "i386" || FLOAT_STORE=-ffloat-store
 # Build outside tests to reduce possibility of getting build rather
 # than installed ensmallen files via #include.
-c++ -O -Wall -o ${e} tests/*.cpp -pthread $(pkg-config armadillo --cflags --libs) -lpthread
+c++ -O -Wall $FLOAT_STORE -o ${e} tests/*.cpp -pthread $(pkg-config armadillo --cflags --libs) -lpthread
 # cd tests because the executable reads data/* files.
 cd tests && ${e} --durations yes
