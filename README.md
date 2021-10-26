@@ -2,16 +2,15 @@
   <a href="http://ensmallen.org/"><img src="http://ensmallen.org/img/ensmallen_text.svg" style="background-color:rgba(0,0,0,0);" height=230 alt="ensmallen: a C++ header-only library for numerical optimization"></a>
 </h2>
 
-**ensmallen** is a C++ header-only library for numerical optimization.
+**ensmallen** is a high-quality C++ library for non-linear numerical optimization.
+
+ensmallen provides many types of optimizers that can be used
+for virtually any numerical optimization task.
+This includes gradient descent techniques, gradient-free optimizers,
+and constrained optimization.
+ensmallen also allows optional callbacks to customize the optimization process.
 
 Documentation and downloads: http://ensmallen.org
-
-ensmallen provides a simple set of abstractions for writing an objective
-function to optimize. It also provides a large set of standard and cutting-edge
-optimizers that can be used for virtually any numerical optimization task.
-These include full-batch gradient descent techniques, small-batch techniques,
-gradient-free optimizers, and constrained optimization.
-
 
 ### Requirements
 
@@ -105,28 +104,20 @@ Please cite the following paper if you use ensmallen in your research and/or
 software. Citations are useful for the continued development and maintenance of
 the library.
 
-* S. Bhardwaj, R. Curtin, M. Edel, Y. Mentekidis, C. Sanderson.  
-  [ensmallen: a flexible C++ library for efficient function optimization](http://www.ensmallen.org/files/ensmallen_2018.pdf).  
-  Workshop on Systems for ML and Open Source Software at NIPS 2018.
+* Ryan R. Curtin, Marcus Edel, Rahul Ganesh Prabhu, Suryoday Basak, Zhihao Lou, Conrad Sanderson.  
+  [The ensmallen library for flexible numerical optimization](https://jmlr.org/papers/volume22/20-416/20-416.pdf).  
+  Journal of Machine Learning Research, Vol. 22, No. 166, 2021.
 
 ```
-@article{DBLP:journals/corr/abs-1810-09361,
-  author    = {Shikhar Bhardwaj and
-               Ryan R. Curtin and
-               Marcus Edel and
-               Yannis Mentekidis and
-               Conrad Sanderson},
-  title     = {ensmallen: a flexible {C++} library for efficient function optimization},
-  journal   = {CoRR},
-  volume    = {abs/1810.09361},
-  doi       = {10.5281/zenodo.2008650},
-  year      = {2018},
-  url       = {http://arxiv.org/abs/1810.09361},
-  archivePrefix = {arXiv},
-  eprint    = {1810.09361},
-  timestamp = {Wed, 31 Oct 2018 14:24:29 +0100},
-  biburl    = {https://dblp.org/rec/bib/journals/corr/abs-1810-09361},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
+@article{ensmallen_JMLR_2021,
+  author  = {Ryan R. Curtin and Marcus Edel and Rahul Ganesh Prabhu and Suryoday Basak and Zhihao Lou and Conrad Sanderson},
+  title   = {The ensmallen library for flexible numerical optimization},
+  journal = {Journal of Machine Learning Research},
+  year    = {2021},
+  volume  = {22},
+  number  = {166},
+  pages   = {1--6},
+  url     = {http://jmlr.org/papers/v22/20-416.html}
 }
 ```
 
