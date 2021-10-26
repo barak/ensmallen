@@ -1,3 +1,10 @@
+ensmallen (2.18.0-1) unstable; urgency=medium
+
+  * New upstream version
+  * Reformat debian/patch/0002-... for consistency
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 26 Oct 2021 12:06:19 +0100
+
 ensmallen (2.17.0-3) unstable; urgency=medium
 
   * Team upload.
