@@ -13,20 +13,32 @@ execute_after_dh_auto_build:
 	dh_auto_build -- ensmallen_tests
 endif
 
+# There was a heisenbug, and this was used to help track it down.
 # Number of times to run test suite.
-# (There was a heisenbug, and this was used to help track it down.)
-n_test = 1
-
+n_test = 2
+# Number of times to rerun test suite assuming it failed one of the first $(n_test) runs.
+n_retest = 3
 override_dh_auto_test:
 	ok=true; \
 	for i in $$(seq $(n_test)); do \
 	  echo "Test Run $$i"; \
-	  if env CTEST_OUTPUT_ON_FAILURE=1 dh_auto_test; \
-	  then \
+	  if env CTEST_OUTPUT_ON_FAILURE=1 dh_auto_test; then \
 	    echo "success"; \
 	  else \
 	    echo "failure"; \
 	    ok=false; \
 	  fi; \
 	done; \
+	if $${ok}; then \
+	  echo "All $(n_test) test runs succeeded."; \
+	else \
+	  for i in $$(seq $(n_retest)); do \
+	    echo "Test Rerun $$i"; \
+	    if env CTEST_OUTPUT_ON_FAILURE=1 dh_auto_test; then \
+	      echo "success"; \
+	    else \
+	      echo "failure"; \
+	    fi; \
+	  done; \
+	fi; \
 	$${ok}
