@@ -1,3 +1,10 @@
+ensmallen (2.18.1-1) unstable; urgency=medium
+
+  * New upstream version
+    - fix which should solve armel arch test issue
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Mon, 22 Nov 2021 08:51:31 +0000
+
 ensmallen (2.18.0-2) unstable; urgency=medium
 
   * Run test twice, and if either run fails run it another three times.
