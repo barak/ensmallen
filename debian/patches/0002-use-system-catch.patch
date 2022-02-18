@@ -53,8 +53,9 @@ Last-Update: 2021-09-19
  tests/spsa_test.cpp                          | 2 +-
  tests/svrg_test.cpp                          | 2 +-
  tests/swats_test.cpp                         | 2 +-
+ tests/test_function_tools.hpp                | 2 +-
  tests/wn_grad_test.cpp                       | 2 +-
- 46 files changed, 46 insertions(+), 46 deletions(-)
+ 47 files changed, 47 insertions(+), 47 deletions(-)
 
 diff --git a/tests/ada_bound_test.cpp b/tests/ada_bound_test.cpp
 index 64584a9..f5717a7 100644
@@ -641,6 +642,19 @@ index afae263..b7fe94f 100644
  #include "test_function_tools.hpp"
  
  using namespace ens;
+diff --git a/tests/test_function_tools.hpp b/tests/test_function_tools.hpp
+index 18c728f..3883cbe 100644
+--- a/tests/test_function_tools.hpp
++++ b/tests/test_function_tools.hpp
+@@ -13,7 +13,7 @@
+ #ifndef ENSMALLEN_TESTS_TEST_FUNCTION_TOOLS_HPP
+ #define ENSMALLEN_TESTS_TEST_FUNCTION_TOOLS_HPP
+ 
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ /**
+  * Create the data for the a logistic regression test.
 diff --git a/tests/wn_grad_test.cpp b/tests/wn_grad_test.cpp
 index b254e7e..8281542 100644
 --- a/tests/wn_grad_test.cpp

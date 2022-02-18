@@ -2,8 +2,9 @@ ensmallen (2.18.2-1) unstable; urgency=medium
 
   * New upstream version
   * Configure to use OpenMP
+  * Stray vendored catch
 
- -- Barak A. Pearlmutter <bap@debian.org>  Fri, 18 Feb 2022 09:37:48 +0000
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 18 Feb 2022 10:17:34 +0000
 
 ensmallen (2.18.1-1) unstable; urgency=medium
 
