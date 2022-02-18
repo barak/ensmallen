@@ -512,7 +512,7 @@ index 14c6b73..ddfa334 100644
  
  using namespace ens;
 diff --git a/tests/scd_test.cpp b/tests/scd_test.cpp
-index 7cc5bd2..da3519a 100644
+index fa41594..0502328 100644
 --- a/tests/scd_test.cpp
 +++ b/tests/scd_test.cpp
 @@ -11,7 +11,7 @@
@@ -538,7 +538,7 @@ index 2209f5a..bde3d74 100644
  using namespace ens;
  using namespace ens::test;
 diff --git a/tests/sgd_test.cpp b/tests/sgd_test.cpp
-index 16b8cf5..e6ead27 100644
+index c413b8e..06333a0 100644
 --- a/tests/sgd_test.cpp
 +++ b/tests/sgd_test.cpp
 @@ -11,7 +11,7 @@

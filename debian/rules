@@ -7,6 +7,9 @@ export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 %:
 	dh $@
 
+override_dh_auto_configure:
+	dh_auto_configure -- -DUSE_OPENMP=ON
+
 # Note that the build-time tests are pretty much redundant with autopkgtest.
 ifeq (,$(filter nocheck,$(DEB_BUILD_OPTIONS)))
 execute_after_dh_auto_build:
