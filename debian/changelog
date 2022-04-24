@@ -1,3 +1,9 @@
+ensmallen (2.19.0-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 24 Apr 2022 11:32:41 +0100
+
 ensmallen (2.18.2-1) unstable; urgency=medium
 
   * New upstream version
