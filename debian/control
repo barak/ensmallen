@@ -6,7 +6,7 @@ Uploaders: Barak A. Pearlmutter <bap@debian.org>
 Build-Depends: debhelper-compat (= 13),
 		catch2,
 		cmake,
-		libarmadillo-dev (>= 1:6.5), liblapack-dev
+		libarmadillo-dev, liblapack-dev
 Standards-Version: 4.6.0
 Rules-Requires-Root: no
 Homepage: https://www.ensmallen.org/
@@ -16,7 +16,7 @@ Vcs-Browser: https://salsa.debian.org/science-team/ensmallen
 Package: libensmallen-dev
 Section: libdevel
 Architecture: any
-Depends: libarmadillo-dev (>= 1:6.5), liblapack-dev, ${misc:Depends}
+Depends: libarmadillo-dev, liblapack-dev, ${misc:Depends}
 Description: C++ header-only library for mathematical optimization
  Ensmallen provides a simple set of abstractions for writing an objective
  function to optimize. It also provides a large set of standard and cutting-edge
