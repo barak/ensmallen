@@ -1,3 +1,12 @@
+ensmallen (2.19.1-1) unstable; urgency=medium
+
+  * Janitor yak shave build dependency versions
+  * New upstream version
+  * Update standards version to 4.6.2, no changes needed.
+  * Forward port quilt patches
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 19 Feb 2023 23:06:57 +0000
+
 ensmallen (2.19.0-1) unstable; urgency=medium
 
   * New upstream version

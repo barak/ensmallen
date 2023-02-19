@@ -97,7 +97,7 @@ index ec73145..6c6c55c 100644
  
  using namespace ens;
 diff --git a/tests/adam_test.cpp b/tests/adam_test.cpp
-index a9aaaf6..002e1f7 100644
+index 1a6dcda..107b8e6 100644
 --- a/tests/adam_test.cpp
 +++ b/tests/adam_test.cpp
 @@ -14,7 +14,7 @@
@@ -162,7 +162,7 @@ index 6dccb45..0d3092a 100644
  
  using namespace ens;
 diff --git a/tests/cne_test.cpp b/tests/cne_test.cpp
-index 4e767b9..728a5a5 100644
+index ab9b9a9..40312b8 100644
 --- a/tests/cne_test.cpp
 +++ b/tests/cne_test.cpp
 @@ -11,7 +11,7 @@
@@ -201,7 +201,7 @@ index 27f1b2f..53ab3e0 100644
  
  using namespace ens;
 diff --git a/tests/frankwolfe_test.cpp b/tests/frankwolfe_test.cpp
-index ad8aff5..2ffe81e 100644
+index 252a605..ba05dc0 100644
 --- a/tests/frankwolfe_test.cpp
 +++ b/tests/frankwolfe_test.cpp
 @@ -12,7 +12,7 @@
@@ -318,7 +318,7 @@ index bcd10e0..c5428d4 100644
  
  using namespace ens;
 diff --git a/tests/line_search_test.cpp b/tests/line_search_test.cpp
-index c1acfd8..ef07916 100644
+index 1635434..8e00377 100644
 --- a/tests/line_search_test.cpp
 +++ b/tests/line_search_test.cpp
 @@ -11,7 +11,7 @@
@@ -526,12 +526,12 @@ index fa41594..0502328 100644
  #include "test_function_tools.hpp"
  
 diff --git a/tests/sdp_primal_dual_test.cpp b/tests/sdp_primal_dual_test.cpp
-index 2209f5a..bde3d74 100644
+index d7da50f..7b60be3 100644
 --- a/tests/sdp_primal_dual_test.cpp
 +++ b/tests/sdp_primal_dual_test.cpp
-@@ -12,7 +12,7 @@
+@@ -15,7 +15,7 @@
+ #endif
  
- #define ARMA_DONT_PRINT_ERRORS
  #include <ensmallen.hpp>
 -#include "catch.hpp"
 +#include <catch2/catch.hpp>
