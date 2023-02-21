@@ -1,3 +1,10 @@
+ensmallen (2.19.1-2) unstable; urgency=medium
+
+  * Merge upstream commit for 2.19.1 update straggler
+  * Patch to relax test margin for i386 failure (closes: #1010431)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 21 Feb 2023 10:54:09 +0000
+
 ensmallen (2.19.1-1) unstable; urgency=medium
 
   * Janitor yak shave build dependency versions
