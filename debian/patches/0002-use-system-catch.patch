@@ -8,16 +8,22 @@ Bug: https://github.com/mlpack/ensmallen/issues/321
 Bug-Debian: https://bugs.debian.org/cgi-bin/bugreport.cgi?bug=993513
 Last-Update: 2021-09-19
 ---
+ tests/active_cmaes_test.cpp                  | 2 +-
+ tests/ada_belief_test.cpp                    | 2 +-
  tests/ada_bound_test.cpp                     | 2 +-
  tests/ada_delta_test.cpp                     | 2 +-
  tests/ada_grad_test.cpp                      | 2 +-
+ tests/ada_sqrt_test.cpp                      | 2 +-
  tests/adam_test.cpp                          | 2 +-
  tests/aug_lagrangian_test.cpp                | 2 +-
  tests/bigbatch_sgd_test.cpp                  | 2 +-
  tests/callbacks_test.cpp                     | 2 +-
+ tests/cd_test.cpp                            | 2 +-
  tests/cmaes_test.cpp                         | 2 +-
  tests/cne_test.cpp                           | 2 +-
  tests/de_test.cpp                            | 2 +-
+ tests/demon_adam_test.cpp                    | 2 +-
+ tests/demon_sgd_test.cpp                     | 2 +-
  tests/eve_test.cpp                           | 2 +-
  tests/frankwolfe_test.cpp                    | 2 +-
  tests/ftml_test.cpp                          | 2 +-
@@ -43,7 +49,6 @@ Last-Update: 2021-09-19
  tests/rmsprop_test.cpp                       | 2 +-
  tests/sa_test.cpp                            | 2 +-
  tests/sarah_test.cpp                         | 2 +-
- tests/scd_test.cpp                           | 2 +-
  tests/sdp_primal_dual_test.cpp               | 2 +-
  tests/sgd_test.cpp                           | 2 +-
  tests/sgdr_test.cpp                          | 2 +-
@@ -55,8 +60,35 @@ Last-Update: 2021-09-19
  tests/swats_test.cpp                         | 2 +-
  tests/test_function_tools.hpp                | 2 +-
  tests/wn_grad_test.cpp                       | 2 +-
- 47 files changed, 47 insertions(+), 47 deletions(-)
+ tests/yogi_test.cpp                          | 2 +-
+ 53 files changed, 53 insertions(+), 53 deletions(-)
 
+diff --git a/tests/active_cmaes_test.cpp b/tests/active_cmaes_test.cpp
+index 24c2fd1..255f4dd 100644
+--- a/tests/active_cmaes_test.cpp
++++ b/tests/active_cmaes_test.cpp
+@@ -9,7 +9,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+diff --git a/tests/ada_belief_test.cpp b/tests/ada_belief_test.cpp
+index 5190bf7..09d3e84 100644
+--- a/tests/ada_belief_test.cpp
++++ b/tests/ada_belief_test.cpp
+@@ -9,7 +9,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
 diff --git a/tests/ada_bound_test.cpp b/tests/ada_bound_test.cpp
 index 64584a9..f5717a7 100644
 --- a/tests/ada_bound_test.cpp
@@ -88,6 +120,19 @@ index ec73145..6c6c55c 100644
 --- a/tests/ada_grad_test.cpp
 +++ b/tests/ada_grad_test.cpp
 @@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+diff --git a/tests/ada_sqrt_test.cpp b/tests/ada_sqrt_test.cpp
+index 57560a9..b338170 100644
+--- a/tests/ada_sqrt_test.cpp
++++ b/tests/ada_sqrt_test.cpp
+@@ -9,7 +9,7 @@
   */
  
  #include <ensmallen.hpp>
@@ -136,7 +181,7 @@ index d566a7a..a88b40a 100644
  
  using namespace ens;
 diff --git a/tests/callbacks_test.cpp b/tests/callbacks_test.cpp
-index 79a7c43..08f8900 100644
+index f5a5205..2c2b553 100644
 --- a/tests/callbacks_test.cpp
 +++ b/tests/callbacks_test.cpp
 @@ -9,7 +9,7 @@
@@ -148,8 +193,21 @@ index 79a7c43..08f8900 100644
  #include "test_function_tools.hpp"
  
  using namespace ens;
+diff --git a/tests/cd_test.cpp b/tests/cd_test.cpp
+index 1e83a47..c0d1a98 100644
+--- a/tests/cd_test.cpp
++++ b/tests/cd_test.cpp
+@@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ 
+ #include "test_function_tools.hpp"
+ 
 diff --git a/tests/cmaes_test.cpp b/tests/cmaes_test.cpp
-index 6dccb45..0d3092a 100644
+index 4a608e6..0a344a2 100644
 --- a/tests/cmaes_test.cpp
 +++ b/tests/cmaes_test.cpp
 @@ -11,7 +11,7 @@
@@ -162,7 +220,7 @@ index 6dccb45..0d3092a 100644
  
  using namespace ens;
 diff --git a/tests/cne_test.cpp b/tests/cne_test.cpp
-index ab9b9a9..40312b8 100644
+index 2410a80..5cac186 100644
 --- a/tests/cne_test.cpp
 +++ b/tests/cne_test.cpp
 @@ -11,7 +11,7 @@
@@ -178,6 +236,32 @@ diff --git a/tests/de_test.cpp b/tests/de_test.cpp
 index c116c69..a8545d4 100644
 --- a/tests/de_test.cpp
 +++ b/tests/de_test.cpp
+@@ -9,7 +9,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+diff --git a/tests/demon_adam_test.cpp b/tests/demon_adam_test.cpp
+index 6611557..c5ac316 100644
+--- a/tests/demon_adam_test.cpp
++++ b/tests/demon_adam_test.cpp
+@@ -9,7 +9,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+diff --git a/tests/demon_sgd_test.cpp b/tests/demon_sgd_test.cpp
+index b8055dc..63f08fa 100644
+--- a/tests/demon_sgd_test.cpp
++++ b/tests/demon_sgd_test.cpp
 @@ -9,7 +9,7 @@
   */
  
@@ -357,7 +441,7 @@ index f660eda..5fbb39b 100644
  using namespace arma;
  using namespace ens;
 diff --git a/tests/main.cpp b/tests/main.cpp
-index 8defd59..7c2fda3 100644
+index 4e52266..ed3532b 100644
 --- a/tests/main.cpp
 +++ b/tests/main.cpp
 @@ -13,7 +13,7 @@
@@ -512,19 +596,6 @@ index 14c6b73..ddfa334 100644
  #include "test_function_tools.hpp"
  
  using namespace ens;
-diff --git a/tests/scd_test.cpp b/tests/scd_test.cpp
-index fa41594..0502328 100644
---- a/tests/scd_test.cpp
-+++ b/tests/scd_test.cpp
-@@ -11,7 +11,7 @@
-  */
- 
- #include <ensmallen.hpp>
--#include "catch.hpp"
-+#include <catch2/catch.hpp>
- 
- #include "test_function_tools.hpp"
- 
 diff --git a/tests/sdp_primal_dual_test.cpp b/tests/sdp_primal_dual_test.cpp
 index d7da50f..7b60be3 100644
 --- a/tests/sdp_primal_dual_test.cpp
@@ -660,6 +731,19 @@ index b254e7e..8281542 100644
 --- a/tests/wn_grad_test.cpp
 +++ b/tests/wn_grad_test.cpp
 @@ -11,7 +11,7 @@
+  */
+ 
+ #include <ensmallen.hpp>
+-#include "catch.hpp"
++#include <catch2/catch.hpp>
+ #include "test_function_tools.hpp"
+ 
+ using namespace ens;
+diff --git a/tests/yogi_test.cpp b/tests/yogi_test.cpp
+index 1fe7a66..6b91216 100644
+--- a/tests/yogi_test.cpp
++++ b/tests/yogi_test.cpp
+@@ -9,7 +9,7 @@
   */
  
  #include <ensmallen.hpp>

@@ -1,3 +1,10 @@
+ensmallen (2.20.0-1) unstable; urgency=medium
+
+  * New upstream version
+  * Forward port quilt patches
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Sun, 08 Oct 2023 11:31:55 +0100
+
 ensmallen (2.19.1-2) unstable; urgency=medium
 
   * Merge upstream commit for 2.19.1 update straggler
