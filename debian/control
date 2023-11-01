@@ -4,7 +4,6 @@ Priority: optional
 Maintainer: Debian Science Maintainers <debian-science-maintainers@alioth-lists.debian.net>
 Uploaders: Barak A. Pearlmutter <bap@debian.org>
 Build-Depends: debhelper-compat (= 13),
-		catch2,
 		cmake,
 		libarmadillo-dev, liblapack-dev
 Standards-Version: 4.6.2
