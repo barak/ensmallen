@@ -1,3 +1,10 @@
+ensmallen (2.20.0-2) unstable; urgency=medium
+
+  * Team upload
+  * Use vendored catch2 again (Closes: #1054712)
+
+ -- Bastian Germann <bage@debian.org>  Thu, 02 Nov 2023 00:23:12 +0100
+
 ensmallen (2.20.0-1) unstable; urgency=medium
 
   * New upstream version
