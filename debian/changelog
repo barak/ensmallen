@@ -1,3 +1,9 @@
+ensmallen (2.21.0-2) UNRELEASED; urgency=medium
+
+  * Merge upstream commit to finish updating the version
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 01 Dec 2023 15:32:26 +0000
+
 ensmallen (2.21.0-1) unstable; urgency=medium
 
   * New upstream version
