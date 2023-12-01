@@ -1,3 +1,9 @@
+ensmallen (2.21.0-1) unstable; urgency=medium
+
+  * New upstream version
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Fri, 01 Dec 2023 11:53:31 +0000
+
 ensmallen (2.20.0-2) unstable; urgency=medium
 
   * Team upload
