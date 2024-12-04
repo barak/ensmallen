@@ -1,3 +1,10 @@
+ensmallen (2.22.1-1) unstable; urgency=medium
+
+  * New usptream version
+  * Bump policy
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Wed, 04 Dec 2024 20:38:28 +0000
+
 ensmallen (2.21.1-1) unstable; urgency=medium
 
   * Merge upstream commit to finish updating the version
