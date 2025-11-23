@@ -1,7 +1,7 @@
 Source: ensmallen
 Section: libs
 Priority: optional
-Maintainer: Debian Science Maintainers <debian-science-maintainers@alioth-lists.debian.net>
+Maintainer: Debian Science Maintainers <debian-science-maintainers@lists.alioth.debian.org>
 Uploaders: Barak A. Pearlmutter <bap@debian.org>
 Build-Depends: debhelper-compat (= 13),
 		cmake,
