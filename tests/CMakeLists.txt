@@ -15,6 +15,7 @@ set(ENSMALLEN_TESTS_SOURCES
     cmaes_test.cpp
     cne_test.cpp
     de_test.cpp
+    delta_bar_delta_test.cpp
     demon_adam_test.cpp
     demon_sgd_test.cpp
     eve_test.cpp
@@ -35,6 +36,7 @@ set(ENSMALLEN_TESTS_SOURCES
     lrsdp_test.cpp
     moead_test.cpp
     agemoea_test.cpp
+    momentum_delta_bar_delta_test.cpp
     momentum_sgd_test.cpp
     nesterov_momentum_sgd_test.cpp
     nsga2_test.cpp

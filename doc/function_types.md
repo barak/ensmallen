@@ -135,6 +135,8 @@ The following optimizers can be used with differentiable functions:
  * [Fast Adaptive Shrinkage/Thresholding Algorithm (FASTA)](#fast-adaptive-shrinkage-thresholding-algorithm-fasta) (`ens::FASTA`)
  * [FrankWolfe](#frank-wolfe) (`ens::FrankWolfe`)
  * [GradientDescent](#gradient-descent) (`ens::GradientDescent`)
+ * [DeltaBarDelta](#deltabardelta) (`ens::DeltaBarDelta`)
+ * [MomentumDeltaBarDelta](#momentum-deltabardelta) (`ens::MomentumDeltaBarDelta`)
  - Any optimizer for [arbitrary functions](#arbitrary-functions)
 
 Each of these optimizers has an `Optimize()` function that is called as
