@@ -1,2 +1,3 @@
-version=4
-https://www.ensmallen.org/files/@PACKAGE@-@ANY_VERSION@@ARCHIVE_EXT@
+Version: 5
+Source: https://www.ensmallen.org/files/
+Matching-Pattern: @PACKAGE@-@ANY_VERSION@@ARCHIVE_EXT@
