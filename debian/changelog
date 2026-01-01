@@ -1,6 +1,8 @@
-ensmallen (3.10.0-2) UNRELEASED; urgency=medium
+ensmallen (3.11.0-1) unstable; urgency=medium
 
+  * Update maintainer email in control file
   * Update debian/watch to Version: 5
+  * New upstream version
 
  -- Barak A. Pearlmutter <bap@debian.org>  Thu, 01 Jan 2026 22:39:36 +0000
 
