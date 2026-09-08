@@ -1,8 +1,9 @@
-ensmallen (3.11.0-2) UNRELEASED; urgency=medium
+ensmallen (3.11.1-1) unstable; urgency=medium
 
   * Debhelper 14 and misc associated packaging updates
+  * New upstream version
 
- -- Barak A. Pearlmutter <bap@debian.org>  Tue, 08 Sep 2026 13:27:54 +0100
+ -- Barak A. Pearlmutter <bap@debian.org>  Tue, 08 Sep 2026 13:29:35 +0100
 
 ensmallen (3.11.0-1) unstable; urgency=medium
 
