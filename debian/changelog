@@ -1,3 +1,11 @@
+ensmallen (3.11.1-2) unstable; urgency=medium
+
+  * Patch L1Constraint::ProximalStep to guarantee progress, fixing
+    infinite recursion due to x87 excess precision (FTBFS i386)
+  * Build tests with -ffp-contract=off (FTBFS ppc64el)
+
+ -- Barak A. Pearlmutter <bap@debian.org>  Thu, 15 Oct 2026 14:50:31 +0100
+
 ensmallen (3.11.1-1) unstable; urgency=medium
 
   * Debhelper 14 and misc associated packaging updates

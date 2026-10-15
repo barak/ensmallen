@@ -4,6 +4,11 @@
 
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
+# Only the test suite is compiled here (the library is header-only).  Some
+# tests, e.g., GaussianMatrixSensingSDP with arma::fmat, are sensitive to the
+# rounding changes from fused multiply-add contraction and fail on ppc64el.
+export DEB_CXXFLAGS_MAINT_APPEND = -ffp-contract=off
+
 %:
 	dh $@
 

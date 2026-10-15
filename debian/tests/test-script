@@ -7,6 +7,7 @@ e=$(mktemp --tmpdir=${AUTOPKGTEST_TMP} ensmallen-test-XXXXXX)
 test "$(dpkg --print-architecture)" != "i386" || FLOAT_STORE=-ffloat-store
 # Build outside tests to reduce possibility of getting build rather
 # than installed ensmallen files via #include.
-c++ -O -Wall $FLOAT_STORE -o ${e} tests/*.cpp -pthread $(pkg-config armadillo --cflags --libs) -lpthread
+# Some tests are sensitive to fused multiply-add contraction, e.g., on ppc64el.
+c++ -O -Wall $FLOAT_STORE -ffp-contract=off -o ${e} tests/*.cpp -pthread $(pkg-config armadillo --cflags --libs) -lpthread
 # cd tests because the executable reads data/* files.
 cd tests && ${e} --durations yes
