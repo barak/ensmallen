@@ -1,31 +1,51 @@
-From: Barak A. Pearlmutter <bap@debian.org>
-Forwarded: https://github.com/mlpack/ensmallen/pull/464
-Description: L1Constraint::ProximalStep() re-projects onto a slightly smaller
- ball if floating-point error left the result outside the ball.  With excess
- floating-point precision (x87 on i386), newNorm can compare greater than
- lambda while newLambda, once stored in a double, rounds back to lambda
- exactly.  The recursion then never makes progress and overflows the stack,
- which caused SIGSEGV in the L1ConstraintProjectionTest and
- FASTAWoodFunctionTest tests on i386.  Force the new radius to be a few ULPs
- of the element type smaller than the old one.
+From: "Barak A. Pearlmutter" <bap@debian.org>
+Date: Sat, 24 Oct 2026 19:28:16 +0100
+Subject: L1Constraint: always shrink radius by a few ULPs in ProximalStep
+ retry
+
+L1Constraint::ProximalStep() re-projects onto a slightly smaller ball
+if floating-point error left the result outside the ball.  It detected
+"no progress" with `newLambda == eT(lambda)`, but with excess precision
+(x87 on i386) that comparison happens in extended precision and sees a
+difference that vanishes when newLambda is stored.  The recursion then
+never makes progress and overflows the stack, causing SIGSEGV in
+L1ConstraintProjectionTest and FASTAWoodFunctionTest on i386.
+
+Instead of testing for progress, always subtract at least a few ULPs of
+eT.  Rounding is monotonic, so the stored radius is then strictly
+smaller regardless of excess precision.  This also fixes the old
+fallback for fmat, where eT(nexttoward(lambda, 0.0)) rounds back to
+eT(lambda) and so removed nothing.
+---
+ include/ensmallen_bits/fbs/l1_constraint_impl.hpp | 18 ++++++++++--------
+ 1 file changed, 10 insertions(+), 8 deletions(-)
 
 diff --git a/include/ensmallen_bits/fbs/l1_constraint_impl.hpp b/include/ensmallen_bits/fbs/l1_constraint_impl.hpp
-index aff3ed2f..3b63241a 100644
+index aff3ed2..19b3e57 100644
 --- a/include/ensmallen_bits/fbs/l1_constraint_impl.hpp
 +++ b/include/ensmallen_bits/fbs/l1_constraint_impl.hpp
-@@ -162,7 +162,14 @@ void L1Constraint::ProximalStep(MatType& coordinates,
-           5 * (eT(lambda) - eT(std::nexttoward(lambda, 0.0)));
-     }
+@@ -153,14 +153,16 @@ void L1Constraint::ProximalStep(MatType& coordinates,
+   const eT newNorm = norm(coordinates, 1);
+   if (newNorm > eT(lambda) && eT(lambda) > eT(0))
+   {
+-    // Shrink the L1 ball by the amount of the error.
+-    eT newLambda = (eT(lambda) - 2 * (newNorm - eT(lambda)));
+-    if (newLambda == eT(lambda))
+-    {
+-      // Make sure we at least remove a few ULPs.
+-      newLambda = eT(lambda) -
+-          5 * (eT(lambda) - eT(std::nexttoward(lambda, 0.0)));
+-    }
++    // Shrink the L1 ball by twice the error, but always by at least a few
++    // ULPs of eT.  We can't test whether we made progress: with excess
++    // precision (x87 on i386) a comparison can see a difference that
++    // vanishes on storage.  Since rounding is monotonic, subtracting at
++    // least a few ULPs guarantees the stored radius is strictly smaller.
++    const eT minShrink = 4 * eT(std::max(
++        (double) std::numeric_limits<eT>::epsilon(),
++        (double) std::numeric_limits<double>::epsilon())) * eT(lambda);
++    const eT newLambda = eT(lambda) -
++        std::max(eT(2 * (newNorm - eT(lambda))), minShrink);
  
--    L1Constraint newConstraint(newLambda);
-+    // Guarantee that the radius strictly decreases by a few ULPs of eT.
-+    // Otherwise excess floating-point precision (e.g. x87 on i386) can make
-+    // newNorm compare greater than lambda while newLambda rounds back to
-+    // lambda when stored, causing unbounded recursion and a stack overflow.
-+    const double eps = std::max((double) std::numeric_limits<eT>::epsilon(),
-+        (double) std::numeric_limits<double>::epsilon());
-+    L1Constraint newConstraint(std::min((double) newLambda,
-+        lambda * (1.0 - 4 * eps)));
+     L1Constraint newConstraint(newLambda);
      newConstraint.ProximalStep(coordinates, 0.0 /* ignored */);
-   }
- }
